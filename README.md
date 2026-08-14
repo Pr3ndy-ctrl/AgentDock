@@ -9,7 +9,8 @@ git clone https://github.com/Pr3ndy-ctrl/AgentDock.git
 cd AgentDock
 python3 -m venv .venv
 source .venv/bin/activate
-pip install -e '.[dev]'
+python3 -m pip install --upgrade pip
+python3 -m pip install -e '.[dev]'
 ```
 
 ## Quick start
