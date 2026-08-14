@@ -24,6 +24,28 @@ agentdock test
 agentdock history
 ```
 
+## Read Gmail (optional)
+
+Install the read-only Gmail connector:
+
+```bash
+python3 -m pip install -e '.[gmail]'
+```
+
+In Google Cloud, enable the Gmail API and create an OAuth client for a Desktop app.
+Download its JSON file, then connect:
+
+```bash
+agentdock connect gmail --client-secrets ~/Downloads/client_secret.json
+agentdock email list --unread --limit 10
+agentdock email search "invoice"
+agentdock email summarize --since 7d
+agentdock run --allow gmail.read "Summarize important unread emails"
+```
+
+AgentDock requests only `gmail.readonly`. OAuth tokens are stored in macOS
+Keychain. It cannot send, delete, label, or modify messages.
+
 Edit `agent.yaml` to use any OpenAI-compatible endpoint. For local Ollama, set:
 
 ```yaml
@@ -43,4 +65,3 @@ api_key_name: OLLAMA_API_KEY
 ## License
 
 Apache License 2.0.
-
