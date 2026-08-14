@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import getpass
 from pathlib import Path
+from typing import Optional
 
 import typer
 
@@ -42,7 +43,7 @@ def execute(project: Path, user_input: str) -> str:
 
 
 @app.command("new")
-def new(name: str, directory: Path | None = None) -> None:
+def new(name: str, directory: Optional[Path] = None) -> None:
     """Create a new agent project."""
     destination = directory or Path(name)
     create_project(destination, name)
@@ -50,7 +51,7 @@ def new(name: str, directory: Path | None = None) -> None:
 
 
 @app.command("run")
-def run(prompt: str | None = typer.Argument(None)) -> None:
+def run(prompt: Optional[str] = typer.Argument(None)) -> None:
     """Run the current agent once."""
     try:
         execute(project_path(), prompt or typer.prompt("You"))
