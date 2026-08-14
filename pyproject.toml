@@ -1,0 +1,30 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "agentdock-cli"
+version = "0.1.0"
+description = "A macOS-first terminal toolkit for building, running, and evaluating AI agents."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "Apache-2.0" }
+authors = [{ name = "Pr3ndy-ctrl" }]
+dependencies = [
+  "typer>=0.12,<1",
+  "PyYAML>=6,<7",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<9"]
+
+[project.scripts]
+agentdock = "agentdock.cli:app"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/agentdock"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
