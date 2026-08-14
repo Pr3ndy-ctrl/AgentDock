@@ -7,7 +7,7 @@ name = "agentdock-cli"
 version = "0.1.0"
 description = "A macOS-first terminal toolkit for building, running, and evaluating AI agents."
 readme = "README.md"
-requires-python = ">=3.11"
+requires-python = ">=3.9"
 license = { text = "Apache-2.0" }
 authors = [{ name = "Pr3ndy-ctrl" }]
 dependencies = [
