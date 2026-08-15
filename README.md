@@ -32,6 +32,9 @@ Install the read-only Gmail connector:
 python3 -m pip install -e '.[gmail]'
 ```
 
+The Gmail extra pins `cryptography` below version 46 so Python 3.9 Intel Macs
+use a prebuilt wheel instead of requiring a local Rust/OpenSSL build.
+
 In Google Cloud, enable the Gmail API and create an OAuth client for a Desktop app.
 Download its JSON file, then connect:
 
